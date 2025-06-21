@@ -6,6 +6,7 @@ const animeSchema = new mongoose.Schema({
   rating: { type: Number, min: 0, max: 10 },
   notes: { type: String },
   watched: { type: Boolean, default: false },
+  coverUrl: { type: String }, // Add cover image URL
 }, { timestamps: true });
 
 module.exports = mongoose.model('Anime', animeSchema);

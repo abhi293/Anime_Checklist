@@ -9,6 +9,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.originalUrl} - Body:`, req.body);
+  next();
+});
+
 app.use('/api/anime', animeRoutes);
 
 const PORT = process.env.PORT || 5000;
