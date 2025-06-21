@@ -55,6 +55,7 @@ const Home = () => {
   const [discover, setDiscover] = useState([]);
   const [discoverLoading, setDiscoverLoading] = useState(false);
   const [discoverPage, setDiscoverPage] = useState(1);
+  const [discoverError, setDiscoverError] = useState('');
   useEffect(() => {
     if (tab === 1) {
       setDiscoverLoading(true);
@@ -67,6 +68,7 @@ const Home = () => {
 
   // Add anime from Discover to checklist
   const handleAddFromDiscover = async (animeObj) => {
+    setDiscoverError('');
     const animeToAdd = {
       title: animeObj.title,
       status: 'Plan to Watch',
@@ -78,7 +80,11 @@ const Home = () => {
       setAnime((prev) => [res.data, ...prev]);
       setTab(0); // Switch to My List after adding
     } catch (err) {
-      // Optionally show error
+      if (err.response?.data?.error === 'Anime already exists in the checklist.') {
+        setDiscoverError('Anime already exists in the checklist.');
+      } else {
+        setDiscoverError('Failed to add anime.');
+      }
     }
   };
 
@@ -137,6 +143,7 @@ const Home = () => {
         {tab === 1 && (
           <Box>
             <Typography variant="h5" sx={{ mb: 2, fontWeight: 700, fontFamily: 'monospace' }}>Trending Anime</Typography>
+            {discoverError && <Box sx={{ color: 'red', width: '100%', mb: 2 }}>{discoverError}</Box>}
             {discoverLoading ? <Fade in><Box sx={{ textAlign: 'center', mt: 4 }}><img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width={80} /></Box></Fade> :
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 3, justifyContent: 'center' }}>
                 {discover.map(anime => (

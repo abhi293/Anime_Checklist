@@ -53,7 +53,12 @@ const AnimeForm = ({ onSuccess, onAdd }) => {
       if (onAdd) onAdd(res.data);
       if (onSuccess) onSuccess();
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to add anime.');
+      // Show specific error for duplicate anime
+      if (err.response?.data?.error === 'Anime already exists in the checklist.') {
+        setError('Anime already exists in the checklist.');
+      } else {
+        setError(err.response?.data?.error || 'Failed to add anime.');
+      }
     } finally {
       setLoading(false);
     }

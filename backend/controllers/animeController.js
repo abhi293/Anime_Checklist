@@ -13,6 +13,11 @@ exports.getAllAnime = async (req, res) => {
 // Add new anime
 exports.addAnime = async (req, res) => {
   try {
+    // Check if anime with the same title already exists (case-insensitive)
+    const existing = await Anime.findOne({ title: { $regex: `^${req.body.title}$`, $options: 'i' } });
+    if (existing) {
+      return res.status(400).json({ error: 'Anime already exists in the checklist.' });
+    }
     const anime = new Anime(req.body);
     await anime.save();
     res.status(201).json(anime);
