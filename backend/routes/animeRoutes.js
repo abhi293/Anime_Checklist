@@ -6,5 +6,6 @@ router.get('/', animeController.getAllAnime);
 router.post('/', animeController.addAnime);
 router.put('/:id', animeController.updateAnime);
 router.delete('/:id', animeController.deleteAnime);
+router.patch('/:id/toggle-watched', animeController.toggleWatched);
 
 module.exports = router;

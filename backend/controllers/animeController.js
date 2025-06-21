@@ -42,3 +42,16 @@ exports.deleteAnime = async (req, res) => {
     res.status(400).json({ error: err.message });
   }
 };
+
+// Toggle watched status
+exports.toggleWatched = async (req, res) => {
+  try {
+    const anime = await Anime.findById(req.params.id);
+    if (!anime) return res.status(404).json({ error: 'Anime not found' });
+    anime.watched = !anime.watched;
+    await anime.save();
+    res.json(anime);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
