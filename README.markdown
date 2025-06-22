@@ -132,6 +132,42 @@ POST /api/anime
 
 ---
 
+## 🧪 Backend Testing & Coverage
+
+The backend uses **Jest** and **Supertest** for unit, integration, and API endpoint testing.
+
+### Running Tests
+
+1. Go to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Run all tests:
+   ```bash
+   npm test
+   ```
+3. Run tests with coverage:
+   ```bash
+   npm run test:coverage
+   ```
+   This will generate a coverage report in the `backend/coverage/` folder.
+
+### Testing Frameworks/Tools
+- Jest (unit/integration/API testing)
+- Supertest (API endpoint testing)
+
+### Test Types
+- **Unit Tests:** Test controller logic with and without mocking the database.
+- **Integration Tests:** Test the interaction between the API server and the database.
+- **API Tests:** Test the API endpoints for correct request/response behavior.
+
+### Example Test Coverage Screenshot
+After running the coverage command, a report will be generated. Example:
+
+![Test Coverage Screenshot](Screenshot%202025-06-21%20223342.png)
+
+---
+
 ## ✅ To-Do / Future Upgrades
 
 - 🔐 Add user login and authentication

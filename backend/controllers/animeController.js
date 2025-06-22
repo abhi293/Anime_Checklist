@@ -6,6 +6,7 @@ exports.getAllAnime = async (req, res) => {
     const animeList = await Anime.find();
     res.json(animeList);
   } catch (err) {
+    console.error('getAllAnime error:', err);
     res.status(500).json({ error: err.message });
   }
 };
@@ -22,6 +23,7 @@ exports.addAnime = async (req, res) => {
     await anime.save();
     res.status(201).json(anime);
   } catch (err) {
+    console.error('addAnime error:', err);
     res.status(400).json({ error: err.message });
   }
 };
