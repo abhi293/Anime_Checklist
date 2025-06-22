@@ -190,7 +190,7 @@ After running the coverage command, a report will be generated. Example:
 ## 🧑‍💻 Author
 
 **Abhinav Anand**  
-GitHub: [your-username](https://github.com/your-username)
+GitHub: [abhi293](https://github.com/abhi293)
 
 ---
 
