@@ -164,7 +164,7 @@ The backend uses **Jest** and **Supertest** for unit, integration, and API endpo
 ### Example Test Coverage Screenshot
 After running the coverage command, a report will be generated. Example:
 
-![Test Coverage Screenshot](Screenshot%202025-06-21%20223342.png)
+![Test Coverage Screenshot](image.png)
 
 ---
 
@@ -179,7 +179,11 @@ After running the coverage command, a report will be generated. Example:
 
 ## 📸 Screenshots
 
-*Coming soon!*
+![Screenshot1](Screenshot1.png)
+---
+![Screenshot1](Screenshot2.png)
+
+---
 
 ---
 

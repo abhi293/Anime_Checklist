@@ -1,0 +1,44 @@
+> anime-checklist-backend@1.0.0 test
+> jest --runInBand
+
+ PASS  tests/api.anime.test.js
+  ● Console
+
+    console.log
+      [6/22/2025, 2:51:06 PM] GET /api/anime - Body: {}
+
+      at log (server.js:13:11)
+
+    console.log
+      [6/22/2025, 2:51:06 PM] POST /api/anime - Body: { title: 'One Piece', episodes: 1000 }
+
+      at log (server.js:13:11)
+
+ PASS  tests/integration.animeRoutes.test.js
+  ● Console
+
+    console.log
+      [6/22/2025, 2:51:06 PM] GET /api/anime - Body: {}
+
+      at log (server.js:13:11)
+
+ PASS  tests/unit.animeController.test.js
+---------------------|---------|----------|---------|---------|---------------------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s               
+---------------------|---------|----------|---------|---------|---------------------------------
+All files            |   54.43 |    18.75 |      30 |   57.33 |                                 
+ backend             |   59.25 |       25 |      20 |   61.53 |                                 
+  server.js          |   59.25 |       25 |      20 |   61.53 | 22-36,43-47                     
+ backend/controllers |    37.5 |     12.5 |      40 |   40.54 |                                 
+  animeController.js |    37.5 |     12.5 |      40 |   40.54 | 9-10,20,26-27,33-38,44-49,55-62 
+ backend/models      |     100 |      100 |     100 |     100 |                                 
+  Anime.js           |     100 |      100 |     100 |     100 |                                 
+ backend/routes      |     100 |      100 |     100 |     100 |                                 
+  animeRoutes.js     |     100 |      100 |     100 |     100 |                                 
+---------------------|---------|----------|---------|---------|---------------------------------
+
+Test Suites: 3 passed, 3 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        2.216 s, estimated 3 s
+Ran all test suites.
